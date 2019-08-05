@@ -1,0 +1,4 @@
+requests
+mysql-connector
+lxml
+bs4
