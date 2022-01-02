@@ -53,8 +53,8 @@ def getInput():
 def getProfile(user):
     global ses, PROXY
     tries = 0
-    r = ses.get('https://www.linkedin.com/voyager/api/identity/profiles/{link}/profileView'.format(link=user),proxies=PROXY)
     while True:
+        r = ses.get('https://www.linkedin.com/voyager/api/identity/profiles/{link}/profileView'.format(link=user),proxies=PROXY)
         try:
             j = json.loads(r.text)
             tries = 0
@@ -243,9 +243,9 @@ try:
                 for link,name in zip(links,names):
                     emp_id += 1
                     print("\nVisiting '"+name+"' Profile")
-                    r = ses.get('https://www.linkedin.com/voyager/api/identity/profiles/{link}/profileView'.format(link=link),proxies=PROXY)
                     tries = 0
                     while True:
+                        r = ses.get('https://www.linkedin.com/voyager/api/identity/profiles/{link}/profileView'.format(link=link),proxies=PROXY)
                         try:
                             j = json.loads(r.text)
                             tries = 0
@@ -371,9 +371,9 @@ try:
                     print('\t\t[+]',cp,"Companies Found")
                     print('\t\t[+]',eds,"Educations Found")
                     print("\t[=] Getting Contact Infos")
-                    r = ses.get('https://www.linkedin.com/voyager/api/identity/profiles/{link}/profileContactInfo'.format(link=link),proxies=PROXY)
                     tries = 0
                     while True:
+                        r = ses.get('https://www.linkedin.com/voyager/api/identity/profiles/{link}/profileContactInfo'.format(link=link),proxies=PROXY)
                         try:
                             j = json.loads(r.text)
                             tries = 0
